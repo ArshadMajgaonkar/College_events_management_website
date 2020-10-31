@@ -35,7 +35,7 @@ body::before {
       rgba(58, 58, 158, 0.8),
       rgba(136, 136, 206, 0.7)
     ),
-    url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+    url('./img/img2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -188,6 +188,7 @@ form {
       <input
         type="text"
         name="name"
+        maxlength="50"
         id="name"
         class="form-control"
         placeholder="Enter the name of sport or event"
@@ -201,6 +202,7 @@ form {
       <input
         type="text"
         name="Location"
+        maxlength="255"
         id="Location"
         class="form-control"
         placeholder="Enter the Location of sport or event"
@@ -212,7 +214,8 @@ form {
     <!-- The Fees of the event will be entered here -->
       <label id="Fees-label" for="Fees">Fees for the Sport</label>
       <input
-        type="text"
+        type="number"
+        max="5000"
         name="Fees"
         id="Fees"
         class="form-control"
@@ -234,19 +237,18 @@ form {
     <div class="form-group">
     <!-- The description for the event will be entered here -->
       <label id="Description-label" for="Fees">Description of the Sport or the event</label>
-      <input
-        type="textarea"
+      
+      <textarea rows="6" cols="75"
         name="Description"
         id="Description-label"
-        class="form-control"
         placeholder="Enter the description of the sport or the event"
         required
-      />
+      ></textarea>
     </div>
-    <center></center>
+    <!-- <center></center> -->
     <div class="submit-button">
-    	<input  align="center" type="submit" name="submit" value="submit">
+    	<input type="submit" name="submit" value="submit">
     </div>
-    </center>
+    <!-- </center> -->
 </body>
 </html>
