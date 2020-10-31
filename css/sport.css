@@ -1,0 +1,45 @@
+body{
+    background-image: url('../img/img1.jpg');
+    background-position-y:20% ;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    
+}
+
+#jumbotron{
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 50%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#title{
+    color: white;
+    font-size: 50px;
+    margin-left: 2em;
+}
+
+table{
+    border: 1px solid black;
+    margin-left:13em;
+}
+td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    font-size: 35px;
+    color: white;
+}
+input{
+    height: 35px;
+    width : 75px;
+    font-size: 20px;
+}
+a>input:hover{
+    height: 45px;
+    width: 80px;
+}
