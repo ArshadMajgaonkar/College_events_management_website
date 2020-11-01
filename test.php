@@ -1,28 +1,27 @@
+<?php 
 
-<?php
+include("connect.php");
 
-define('DB_HOST','localhost');
-define('DB_NAME','college_eventsDB');
-define('DB_USERNAME','root');
-define('DB_PASSWORD','root');
+if(!$connection){
+	echo "Connection Error" . mysqli_connect_error();
+}
+$sql= 'Select * FROM sport';
 
-$connection=mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME) or die("cannot connect");
+$result= mysqli_query($connection,$sql);
 
-$sql = "SELECT * FROM `admin_login` ";
-                         $result = mysqli_query($connection, $sql);
+$data=mysqli_fetch_all($result,MYSQLI_ASSOC);
+print_r($data)
+ ?>
 
 
-                         while ($row = mysqli_fetch_array($result)) {
-                            echo '  
-                            <tr>  
-                                 <td>' . $row["AEN"] . '</td>  
-                                 <td>' . $row["student_id"] . '</td>  
-                                 <td>' . $row["branch"] . '</td>  
-                                 <td>' . $row["year"] . '</td>  
-                                 <td>' . $row["name"] . '</td></tr>';
 
-                         }
 
-                            
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 
-?>
+</body>
+</html>

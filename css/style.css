@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.home{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background:  black no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+}
+.box{
+    width: 800px;
+    height: 600px;
+    position: relative;
+    margin: 6px auto;
+    padding: 5px;
+    background-color: white;
+    /* background:url('./img/img1.jpg')no-repeat center center; */
+    top: 30px;
+    z-index: -1;
+    border-radius: 60px;
+    border: 6px solid darkred;
+    color:black;
+    background-size: cover;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+#heading{
+    display: flex;
+    justify-content: center;
+    font: 3rem;
+}
