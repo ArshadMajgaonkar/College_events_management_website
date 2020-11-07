@@ -176,6 +176,13 @@ form {
   cursor: pointer:
   padding: 20px;
 }
+#search {
+    width: 15em; 
+   height: 2em;
+    cursor: pointer:
+  padding: 20px;
+  
+}
 
 </style>
 </head>
@@ -184,27 +191,26 @@ form {
   <header class="header">
     <h1 id="title" class="text-center">SAA Event Management</h1>
     <p id="description" class="description text-center">
-      Please select the sports you want to search the registrants by
+      Please enter the user id you want to search the registrants by
     </p>
   </header>
-  <form id="selectsport-form" action="selectbysporesult2.php" method="POST">
+  <form id="selectbyuser-form" action="" method="POST">
     <div class="form-group">
-      <label id="search_by_sport" for="sport" ><h2>Select the sport to search by</h2>:
+      <label id="search_by_userid" for="sport" ><h2>Enter the user id to search by</h2>:
       </label>
-    <select class="select-button" name="sport">
-      <option value="chess" selected>Chess</option>
-      <option value="carrom">Carrom</option>
-      <option value="kho kho">kho kho</option>
-    </select>
+    <input 
+    type="number" 
+    id="useri" 
+    name="useri" 
+    class="form-control" 
+    placeholder="Please enter the user id in numbers"></input>
     </div>
     <center>
      <div class="submit-button">
-      <input  align="center" type="submit" name="submit" value="submit">
+      <input type="submit" name="search" id="search" value="Search User" class="search">
     </div>
   </center>
 </form>
 </div>
-
-
 </body>
 </html>
