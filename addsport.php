@@ -250,11 +250,55 @@ form {
     </div>
     </center>
 </body>
+>>>>>>> b4d0e22fcca225d901036fa188b1f399307a2993
 =======
+<?php
+
+    require "./connect.php";
+
+    session_start();
+
+    if(empty($_SESSION['login_user']))
+    {
+        header('location:login.php');
+    }
+
+    if(isset($_POST['submit']) and $_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        
+
+        $name = $_POST['name'];
+        $amt=$_POST['amt'];
+        $loc=$_POST['loc'];
+        $desc=$_POST['desc'];
+        $date=$_POST['date'];
+
+        $sql="INSERT INTO `sport`( `name`, `date`, `amt`, `loc`, `description`) VALUES ('$name','$date',$amt,'$loc','$desc')";
+
+        $result=mysqli_query($connection,$sql);
+
+        if(mysqli_affected_rows($connection))
+        {
+            echo "<script>
+            alert('Data inserted successfully');
+            window.location.href='./admindashboard.php';
+            </script>";
+        }
+        else
+        {
+            echo "<script>
+            alert('Failed to insert data');
+            window.location.href='./admindashboard.php';
+            </script>";
+        }
+    }
+?>
+
+
+
 <html>
 <head>
-<title>
-</title>
+<title>Add Sports</title>
 <style>
 :root {
   --color-white: #f3f3f3;
@@ -288,7 +332,7 @@ body::before {
       rgba(58, 58, 158, 0.8),
       rgba(136, 136, 206, 0.7)
     ),
-    url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+    url('./img/img2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -434,13 +478,14 @@ form {
       You can add a new Sport here
     </p>
   </header>
-  <form id="addsport-form" action="" method="POST">
+  <form id="addsport-form" action="addsport.php" method="POST">
     <div class="form-group">
     <!-- The name of the event will be entered here -->
       <label id="name-label" for="name">Name of the Sport</label>
       <input
         type="text"
         name="name"
+        maxlength="50"
         id="name"
         class="form-control"
         placeholder="Enter the name of sport or event"
@@ -453,7 +498,8 @@ form {
       <label id="Location-label" for="Location">Location of the Sport</label>
       <input
         type="text"
-        name="Location"
+        name="loc"
+        maxlength="255"
         id="Location"
         class="form-control"
         placeholder="Enter the Location of sport or event"
@@ -465,8 +511,9 @@ form {
     <!-- The Fees of the event will be entered here -->
       <label id="Fees-label" for="Fees">Fees for the Sport</label>
       <input
-        type="text"
-        name="Fees"
+        type="number"
+        max="5000"
+        name="amt"
         id="Fees"
         class="form-control"
         placeholder="Enter the Fees for the sport or the event"
@@ -477,8 +524,8 @@ form {
     <!-- The date of the event will be selected here -->
       <label id="Fees-label" for="Fees">Date for the Sports Event</label>
       <input
-        type="date"
-        name="sport_date"
+        type="datetime-local"
+        name="date"
         id="sport_date"
         class="form-control"
         required
@@ -487,20 +534,20 @@ form {
     <div class="form-group">
     <!-- The description for the event will be entered here -->
       <label id="Description-label" for="Fees">Description of the Sport or the event</label>
-      <input
-        type="textarea"
-        name="Description"
+      
+      <textarea rows="6" cols="75"
+        name="desc"
         id="Description-label"
-        class="form-control"
         placeholder="Enter the description of the sport or the event"
         required
-      />
+      ></textarea>
     </div>
-    <center></center>
+    <!-- <center></center> -->
     <div class="submit-button">
-    	<input  align="center" type="submit" name="submit" value="submit">
+    	<input type="submit" name="submit" value="submit">
     </div>
-    </center>
+  </form>
+    <!-- </center> -->
 </body>
->>>>>>> b4d0e22fcca225d901036fa188b1f399307a2993
+>>>>>>> 4f0acc57e85a3b8873e290994bba78c32bd9dd35
 </html>
