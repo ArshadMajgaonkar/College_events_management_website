@@ -12,7 +12,7 @@ $connection=mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME) or die("cann
 //                          $result = mysqli_query($connection, $sql);
 
 
-//                          while ($row = mysqli_fetch_array($result)) {
+//                          while ($row = mysqli_fetch_assoc($result)) {
 //                             echo '  
 //                             <tr>  
 //                                  <td>' . $row["AEN"] . '</td>  
