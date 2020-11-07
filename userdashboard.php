@@ -40,11 +40,11 @@ html{
 	<h1 class="heading" style="color:yellow;">Welcome!!!</h1>
   <div class="vertical-menu">
   <a href="#" class="active">Home</a>
-  <a href="#">Profile</a>
+  <a href="./studentprofile.php">Profile</a>
   <a href="#">Enroll for Sports </a>
   <a href="#">Check Enrollment Status </a>
   <a href="#">Cancel Enrollment</a>
-  <a href="#">Logout</a>
+  <a href="./logout.php">Logout</a>
 </div>
   </div>
 </div>

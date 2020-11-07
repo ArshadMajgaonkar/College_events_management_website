@@ -1,7 +1,50 @@
+<?php
+
+    require "./connect.php";
+
+    session_start();
+
+    if(empty($_SESSION['login_user']))
+    {
+        header('location:login.php');
+    }
+
+    if(isset($_POST['submit']) and $_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        
+
+        $name = $_POST['name'];
+        $amt=$_POST['amt'];
+        $loc=$_POST['loc'];
+        $desc=$_POST['desc'];
+        $date=$_POST['date'];
+
+        $sql="INSERT INTO `sport`( `name`, `date`, `amt`, `loc`, `description`) VALUES ('$name','$date',$amt,'$loc','$desc')";
+
+        $result=mysqli_query($connection,$sql);
+
+        if(mysqli_affected_rows($connection))
+        {
+            echo "<script>
+            alert('Data inserted successfully');
+            window.location.href='./admindashboard.php';
+            </script>";
+        }
+        else
+        {
+            echo "<script>
+            alert('Failed to insert data');
+            window.location.href='./admindashboard.php';
+            </script>";
+        }
+    }
+?>
+
+
+
 <html>
 <head>
-<title>
-</title>
+<title>Add Sports</title>
 <style>
 :root {
   --color-white: #f3f3f3;
@@ -181,7 +224,7 @@ form {
       You can add a new Sport here
     </p>
   </header>
-  <form id="addsport-form" action="" method="POST">
+  <form id="addsport-form" action="addsport.php" method="POST">
     <div class="form-group">
     <!-- The name of the event will be entered here -->
       <label id="name-label" for="name">Name of the Sport</label>
@@ -201,7 +244,7 @@ form {
       <label id="Location-label" for="Location">Location of the Sport</label>
       <input
         type="text"
-        name="Location"
+        name="loc"
         maxlength="255"
         id="Location"
         class="form-control"
@@ -216,7 +259,7 @@ form {
       <input
         type="number"
         max="5000"
-        name="Fees"
+        name="amt"
         id="Fees"
         class="form-control"
         placeholder="Enter the Fees for the sport or the event"
@@ -227,8 +270,8 @@ form {
     <!-- The date of the event will be selected here -->
       <label id="Fees-label" for="Fees">Date for the Sports Event</label>
       <input
-        type="date"
-        name="sport_date"
+        type="datetime-local"
+        name="date"
         id="sport_date"
         class="form-control"
         required
@@ -239,7 +282,7 @@ form {
       <label id="Description-label" for="Fees">Description of the Sport or the event</label>
       
       <textarea rows="6" cols="75"
-        name="Description"
+        name="desc"
         id="Description-label"
         placeholder="Enter the description of the sport or the event"
         required
@@ -249,6 +292,7 @@ form {
     <div class="submit-button">
     	<input type="submit" name="submit" value="submit">
     </div>
+  </form>
     <!-- </center> -->
 </body>
 </html>

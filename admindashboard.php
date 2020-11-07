@@ -43,7 +43,7 @@ html{
   <a href="#">Payment Options</a>
   <a href="#">Show Players by Sport  </a>
   <a href="#">Search players by UEN</a>
-  <a href="#">Add a Sport</a>
+  <a href="./addsport.php">Add a Sport</a>
   <a href="#">Delete a Sport</a>
 </div>
   </div>

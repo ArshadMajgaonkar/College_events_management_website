@@ -25,7 +25,14 @@ require './connect.php';
                     $sql = "SELECT DISTINCT `name` FROM `sport` ORDER BY `name` ";
 
                     $result = mysqli_query($connection, $sql);
-                    echo "<table>";
+
+                    ?>
+
+
+                    <!-- <form method="POST" action="a_deleteSportScript.php"> -->
+                         <table>
+                    <?php
+
                     while ($row = mysqli_fetch_assoc($result)) {
                         // print_r($row);
                     echo "   
@@ -38,6 +45,7 @@ require './connect.php';
                     }
                     echo "</table>";
                 ?>
+                <!-- </form> -->
             </div>
         </div>
     </body>
